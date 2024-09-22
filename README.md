@@ -4,7 +4,7 @@ This project setups all my system configurations with a single command. Works by
 ## Dependencies
 - [stow](https://www.gnu.org/software/stow/)
 
-## Install
+## Usage
 ```bash
-./dot <{install|uninstall}>
+./dot
 ```

@@ -2,7 +2,7 @@
 
 # Check if the user provided exactly one argument
 if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 {install|uninstall}"
+    echo "Usage: $0 {install|uninstall|reload}"
     exit 1
 fi
 
@@ -16,6 +16,12 @@ case $1 in
     uninstall)
         stow -t ~/.config -D config
         echo "Removed the symlinks from ~/.config"
+        # Add your uninstallation commands here
+        ;;
+    reload)
+        stow -t ~/.config -D config
+        stow -t ~/.config config
+        echo "Reloaded configs from ./config"
         # Add your uninstallation commands here
         ;;
     *)
