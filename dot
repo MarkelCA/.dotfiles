@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Check if the user provided exactly one argument
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 {install|uninstall}"
+    exit 1
+fi
+
+# Use a case statement to handle the options
+case $1 in
+    install)
+        stow -t ~/.config config
+        echo "Created the symlinks from ~/.config to ./config"
+        # Add your installation commands here
+        ;;
+    uninstall)
+        stow -t ~/.config -D config
+        echo "Removed the symlinks from ~/.config"
+        # Add your uninstallation commands here
+        ;;
+    *)
+        echo "Invalid option: $1"
+        echo "Usage: $0 {install|uninstall}"
+        exit 1
+        ;;
+esac
+
