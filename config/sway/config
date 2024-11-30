@@ -136,6 +136,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    # move focused workspace between screens
+    bindsym $mod+Shift+w move workspace to output right
+    bindsym $mod+Shift+m move workspace to output left
 #
 # Layout stuff:
 #
@@ -223,8 +227,10 @@ include /etc/sway/config.d/*
 input * {
     xkb_layout "pl,es"
     xkb_variant "dvp,dvorak"
-    #xkb_options "ctrl:swap_lalt_lctl_lwin,grp:alt_shift_toggle"
-    xkb_options "ctrl:swap_lalt_lctl_lwin,grp:alt_space_toggle"
+    # Laptop Keyboard
+    # xkb_options "ctrl:swap_lalt_lctl_lwin,grp:alt_space_toggle" 
+    # Magic Keyboard
+    xkb_options "ctrl:swap_lwin_lctl,grp:alt_space_toggle" 
 }
 
 bindsym $mod+b exec brave
@@ -247,3 +253,5 @@ input "1739:52544:SYNA7DAB:01_06CB:CD40_Touchpad" {
     tap enabled
     middle_emulation enabled
 }
+
+
