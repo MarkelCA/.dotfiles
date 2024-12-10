@@ -1,0 +1,7 @@
+[user]
+	email = cuestaarribas.markel@proton.me
+	name = Markel Cuesta
+[push]
+	autoSetupRemote = true
+[core]
+	editor = vim
