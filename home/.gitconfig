@@ -5,3 +5,4 @@
 	autoSetupRemote = true
 [core]
 	editor = vim
+	excludesFile = /home/markel/.gitignore_global
