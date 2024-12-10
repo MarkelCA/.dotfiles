@@ -6,3 +6,24 @@
 [core]
 	editor = vim
 	excludesFile = /home/markel/.gitignore_global
+[rerere]
+    # git remembers your partial merge choices and replays them next time
+    enabled = true
+    autoupdate = true
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch -av
+    staash = stash --all # Also stashes untracked files
+    bb = !~/.dotfiles/scripts/better-git-branch.sh # More friedly branch list (only local branches)
+    pushf = push --force-with-lease --force-if-includes
+
+    # Show all of my configured aliases
+    aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
+
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[branch]
+	sort = -committerdate
+[maintenance]
+	repo = /home/markel/.dotfiles
