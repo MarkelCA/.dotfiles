@@ -95,3 +95,6 @@ source ${ZDOTDIR:-$HOME}/.zsh_aliases
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+#
+eval "$(zoxide init zsh)"
+
