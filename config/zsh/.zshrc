@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search )
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search fzf-tab)
 # plugins=( [plugins...] zsh-syntax-highlighting)
 #
 bindkey -M emacs '^P' history-substring-search-up
