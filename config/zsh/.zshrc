@@ -97,4 +97,4 @@ source ${ZDOTDIR:-$HOME}/.zsh_aliases
 # export ARCHFLAGS="-arch x86_64"
 #
 eval "$(zoxide init zsh)"
-
+path+=($HOME/bin)

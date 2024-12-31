@@ -228,9 +228,9 @@ input * {
     xkb_layout "pl,es"
     xkb_variant "dvp,dvorak"
     # Laptop Keyboard
-    # xkb_options "ctrl:swap_lalt_lctl_lwin,grp:alt_space_toggle" 
+    xkb_options "ctrl:swap_lalt_lctl_lwin,grp:alt_space_toggle" 
     # Magic Keyboard
-    xkb_options "ctrl:swap_lwin_lctl,grp:alt_space_toggle" 
+    # xkb_options "ctrl:swap_lwin_lctl,grp:alt_space_toggle" 
 }
 
 bindsym $mod+b exec brave

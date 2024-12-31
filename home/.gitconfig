@@ -16,7 +16,7 @@
     st = status
     br = branch -av
     staash = stash --all # Also stashes untracked files
-    bb = !~/.dotfiles/scripts/better-git-branch.sh # More friedly branch list (only local branches)
+    bb = !~/bin/better-git-branch.sh # More friedly branch list (only local branches)
     pushf = push --force-with-lease --force-if-includes
 
     # Show all of my configured aliases
