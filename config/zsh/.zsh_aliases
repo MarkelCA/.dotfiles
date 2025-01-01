@@ -1,3 +1,4 @@
+# Git aliases
 alias g="git"
 alias gs="git status"
 alias ga="git add"
@@ -8,5 +9,12 @@ alias gr="git restore"
 alias grs="git restore --staged"
 alias gd="git diff"
 alias gl="git log"
+
+# Kubernetes
 alias k="kubectl"
+
+# Clipboard
 alias xclip="xclip -selection clipboard"
+
+# Zoxide
+alias cd="z"
