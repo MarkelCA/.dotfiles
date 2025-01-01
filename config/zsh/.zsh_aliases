@@ -16,5 +16,9 @@ alias k="kubectl"
 # Clipboard
 alias xclip="xclip -selection clipboard"
 
-# Zoxide
+# Zoxide (better cd)
 alias cd="z"
+
+# Eza (better ls)
+alias e="eza --icons=always $@"
+alias et="eza --tree --icons=always $@"

@@ -6,3 +6,6 @@ ripgrep
 fzf
 stow
 tmux
+eza
+dig
+bat
