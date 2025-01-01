@@ -5,3 +5,4 @@ kitty
 ripgrep
 fzf
 stow
+tmux
