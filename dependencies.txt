@@ -1,0 +1,7 @@
+git-delta
+tldr
+zoxide
+kitty
+ripgrep
+fzf
+stow

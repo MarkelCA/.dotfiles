@@ -6,6 +6,7 @@
 [core]
 	editor = vim
 	excludesFile = /home/markel/.gitignore_global
+	pager = delta
 [rerere]
     # git remembers your partial merge choices and replays them next time
     enabled = true
@@ -27,3 +28,10 @@
 	sort = -committerdate
 [maintenance]
 	repo = /home/markel/.dotfiles
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
+[merge]
+	conflictStyle = zdiff3
