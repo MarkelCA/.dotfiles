@@ -7,5 +7,6 @@ fzf
 stow
 tmux
 eza
-dig
 bat
+dmenu
+i3status

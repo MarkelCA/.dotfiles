@@ -228,9 +228,9 @@ input * {
     xkb_layout "pl,es"
     xkb_variant "dvp,dvorak"
     # Laptop Keyboard
-    xkb_options "ctrl:swap_lalt_lctl_lwin,grp:alt_space_toggle" 
+    # xkb_options "ctrl:swap_lalt_lctl_lwin,grp:alt_space_toggle" 
     # Magic Keyboard
-    # xkb_options "ctrl:swap_lwin_lctl,grp:alt_space_toggle" 
+    xkb_options "ctrl:swap_lwin_lctl,grp:alt_space_toggle" 
 }
 
 bindsym $mod+b exec brave
@@ -248,7 +248,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 
-input "1739:52544:SYNA7DAB:01_06CB:CD40_Touchpad" {
+input "type:touchpad" {
     dwt enabled
     tap enabled
     middle_emulation enabled

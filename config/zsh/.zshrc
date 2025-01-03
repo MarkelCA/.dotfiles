@@ -98,3 +98,4 @@ source ${ZDOTDIR:-$HOME}/.zsh_aliases
 #
 eval "$(zoxide init zsh)"
 path+=($HOME/bin)
+path+=(/usr/local/go/bin)
