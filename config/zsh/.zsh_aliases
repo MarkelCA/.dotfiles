@@ -41,7 +41,7 @@ alias cd="z"
 # eza shortcut
  show_files() {
    echo
-   eza --icons=always -l
+   eza --icons=always
    zle reset-prompt
 }
 
