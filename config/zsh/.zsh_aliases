@@ -16,9 +16,33 @@ alias k="kubectl"
 # Clipboard
 alias xclip="xclip -selection clipboard"
 
-# Zoxide (better cd)
-alias cd="z"
-
 # Eza (better ls)
 alias e="eza --icons=always $@"
 alias et="eza --tree --icons=always $@"
+
+# Goes to a project folder from /var/www folder
+project() {
+  local selected_dir
+  selected_dir=$(find ~/projects/ -maxdepth 1 -type d | fzf)
+  if [ -n "$selected_dir" ]; then
+    cd "$selected_dir"
+    # zle reset-prompt
+  builtin zle .reset-prompt
+  fi
+}
+
+# Run the "project" function with Ctrl+Space
+zle -N project
+bindkey '^ ' project
+
+# Zoxide (better cd)
+alias cd="z"
+
+# eza shortcut
+ show_files() {
+   eza --icons=always -l
+   zle reset-prompt
+}
+
+zle -N show_files
+bindkey '^n' show_files

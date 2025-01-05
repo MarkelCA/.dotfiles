@@ -71,6 +71,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search fzf-tab)
+# plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 # plugins=( [plugins...] zsh-syntax-highlighting)
 #
 bindkey -M emacs '^P' history-substring-search-up
@@ -95,10 +96,15 @@ source ${ZDOTDIR:-$HOME}/.zsh_aliases
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-#
+
+# Run zoxide (better cd)
 eval "$(zoxide init zsh)"
+
+# Add binaries from this repo to the path
 path+=($HOME/bin)
+
+# Add golang folter to path
 path+=(/usr/local/go/bin)
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# Load ssh keys
+# eval "$(ssh-agent -s)" 2> /dev/null

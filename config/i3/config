@@ -186,8 +186,11 @@ bar {
 }
 
 # Add layouts and switch shortcut (Alt+Shift)
-exec --no-startup-id setxkbmap -layout "pl,es" -variant "dvp,dvorak"
-exec --no-startup-id setxkbmap -option "grp:alt_shift_toggle"
+
+# Magic keyboard layout
+exec_always "setxkbmap -layout pl,es -variant dvp,dvorak -option ctrl:swap_lwin_lctl,grp:alt_space_toggle"
+# Laptop keyboard layout
+# exec_always "setxkbmap -layout pl,es -variant dvp,dvorak -option ctrl:swap_lalt_lctl_lwin,grp:alt_space_toggle"
 
 
 # move focused workspace between monitors
