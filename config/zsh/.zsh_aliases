@@ -33,16 +33,20 @@ project() {
 
 # Run the "project" function with Ctrl+Space
 zle -N project
-bindkey '^ ' project
+bindkey '^f' project
 
 # Zoxide (better cd)
 alias cd="z"
 
 # eza shortcut
  show_files() {
+   echo
    eza --icons=always -l
    zle reset-prompt
 }
 
 zle -N show_files
 bindkey '^n' show_files
+
+
+# bindkey '^e' tmux

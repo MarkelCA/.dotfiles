@@ -196,3 +196,7 @@ exec_always "setxkbmap -layout pl,es -variant dvp,dvorak -option ctrl:swap_lwin_
 # move focused workspace between monitors
 bindsym $mod+Shift+h move workspace to output right
 bindsym $mod+Shift+t move workspace to output left
+
+# Brightness controls
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
