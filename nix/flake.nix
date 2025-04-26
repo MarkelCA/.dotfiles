@@ -5,9 +5,10 @@
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
-    nixgl.url = "github:nix-community/nixGL";
-    nixGL.url = "github:nix-community/nixGL";
-    nixGL.inputs.nixpkgs.follows = "nixpkgs";
+    nixGL = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Home Manager
     home-manager = {
@@ -16,21 +17,19 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nixgl, ... }:
+  outputs = { nixpkgs, home-manager, nixGL, ... }:
     let
       pkgs = import nixpkgs {
         system = "x86_64-linux";
-        overlays = [ nixgl.overlay ];
+        overlays = [ nixGL.overlay ];
       };
     in {
       homeConfigurations."markel" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit nixgl; };
+        extraSpecialArgs = { inherit nixGL; };
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [
-          ./home.nix 
-        ];
+        modules = [ ./home.nix ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix

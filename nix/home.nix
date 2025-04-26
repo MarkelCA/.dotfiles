@@ -1,27 +1,11 @@
-{ config, pkgs, lib, nixgl, ... }:
+{ pkgs, ... }:
 
-# Previously run:
-# nix run home-manager/master -- switch --impure
-
-let
-  nixGLWrap = pkg:
-    pkgs.runCommand "${pkg.name}-nixgl-wrapper" { } ''
-      mkdir $out
-      ln -s ${pkg}/* $out
-      rm $out/bin
-      mkdir $out/bin
-      for bin in ${pkg}/bin/*; do
-       wrapped_bin=$out/bin/$(basename $bin)
-       echo "exec ${lib.getExe nixgl.auto.nixGLDefault} $bin \$@" > $wrapped_bin
-       chmod +x $wrapped_bin
-      done
-    '';
-in {
-    imports = [ 
-    ./modules/git.nix 
-    ./modules/zsh.nix 
+{
+  imports = [
+    ./modules/git.nix
+    ./modules/zsh.nix
     ./modules/tmux.nix
-    # ./modules/kitty.nix
+    ./modules/kitty.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -52,7 +36,7 @@ in {
     eza
     dig
     bat
-    (config.lib.nixGL.wrap kitty)
+    nixgl.nixGLIntel
 
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
