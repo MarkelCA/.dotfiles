@@ -25,7 +25,7 @@
     in {
       homeConfigurations."markel" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-
+        extraSpecialArgs = { inherit nixgl; };
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [

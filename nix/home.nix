@@ -1,14 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nixgl, ... }:
 
 # Previously run:
-# nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
-# nix-channel --add https://nixos.org/channels/nixos-24.11 nixpkgs
-# nix-channel --update
-# To switch: 
 # nix run home-manager/master -- switch --impure
 
 let
-  nixgl = import <nixgl> { };
   nixGLWrap = pkg:
     pkgs.runCommand "${pkg.name}-nixgl-wrapper" { } ''
       mkdir $out
@@ -57,8 +52,7 @@ in {
     eza
     dig
     bat
-    nixgl.nixGLIntel
-    (nixGLWrap kitty)
+    (config.lib.nixGL.wrap kitty)
 
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
