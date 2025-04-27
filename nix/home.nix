@@ -7,6 +7,7 @@
     ./modules/tmux.nix
     ./modules/kitty.nix
     # ./modules/sway.nix
+    # ./modules/i3.nix
   ];
   home.username = "markel";
   home.homeDirectory = "/home/markel";
