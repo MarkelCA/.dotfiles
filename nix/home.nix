@@ -7,27 +7,16 @@
     ./modules/tmux.nix
     ./modules/kitty.nix
   ];
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "markel";
   home.homeDirectory = "/home/markel";
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  fonts.fontconfig.enable = true;
-  home.packages = with pkgs; [
 
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
+  fonts.fontconfig.enable = true;
+
+  home.packages = with pkgs; [
     hello
     fortune
+    nerdfetch
     vim
     tldr
     zoxide
@@ -37,20 +26,11 @@
     eza
     dig
     bat
-    nixgl.nixGLIntel
+    dmenu
+    i3status
+    nixgl.nixGLIntel # openGL wrapper for nix
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     jetbrains-mono 
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
