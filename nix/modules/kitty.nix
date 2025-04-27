@@ -1,4 +1,4 @@
-{ config, pkgs, nixGL, ... }:
+{ pkgs, ... }:
 
 {
   programs.kitty = {
@@ -10,5 +10,6 @@
       name = "JetBrainsMono";
       size = 16.0;
     };
+    themeFile = "Catppuccin-Mocha";
   };
 }
