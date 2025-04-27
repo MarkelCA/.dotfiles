@@ -31,12 +31,13 @@
     i3status
     nixgl.nixGLIntel # openGL wrapper for nix
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    jetbrains-mono 
+    jetbrains-mono
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    ".config/sway/config" = { source = ./dotfiles/sway/config; };
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
