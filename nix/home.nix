@@ -6,7 +6,7 @@
     ./modules/zsh.nix
     ./modules/tmux.nix
     ./modules/kitty.nix
-    ./modules/sway.nix
+    # ./modules/sway.nix
   ];
   home.username = "markel";
   home.homeDirectory = "/home/markel";

@@ -178,7 +178,7 @@
     brightnessctl
     i3status
     dmenu
-    wmenu
+    # wmenu
     brave
     swaylock
     pulseaudio
