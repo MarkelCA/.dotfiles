@@ -1,6 +1,7 @@
 { _, pkgs, ... }:
 
 {
+  programs.fzf.tmux.enableShellIntegration = true;
   programs.tmux = {
     enable = true;
     terminal = "xterm-256color";
@@ -9,6 +10,9 @@
     baseIndex = 1;
     clock24 = true;
     keyMode = "vi";
+
+    # Vim style pane selection
+    customPaneNavigationAndResize = true;
 
     extraConfig = ''
       set-option -sa terminal-overrides ",xterm*:Tc"
@@ -28,9 +32,6 @@
       bind -n M-H previous-window
       bind -n M-L next-window
 
-      # set vi-mode
-      set-window-option -g mode-keys vi
-
       # split panes using | and - and open in current path
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
@@ -44,28 +45,35 @@
     plugins = with pkgs.tmuxPlugins; [
       {
         plugin = sensible;
-        extraConfig = "";
-      }
-      {
-        plugin = vim-tmux-navigator;
-        extraConfig = "";
       }
       {
         plugin = catppuccin;
         extraConfig = ''
-          # Set Catppuccin theme flavor
           set -g @catppuccin_flavour 'mocha'
+          set -g @catppuccin_window_default_text "#W"
+          set -g @catppuccin_window_text "#W"
+          set -g @catppuccin_window_current_text "#W"
+
+          # Make the status line pretty and add some modules
+          set -g status-right-length 100
+          set -g status-left-length 100
+          set -g status-left ""
+          set -g status-right "#{E:@catppuccin_status_application}"
+          set -agF status-right "#{E:@catppuccin_status_cpu}"
+          set -ag status-right "#{E:@catppuccin_status_session}"
+          set -ag status-right "#{E:@catppuccin_status_uptime}"
+          set -agF status-right "#{E:@catppuccin_status_battery}"
         '';
       }
       {
         plugin = yank;
-        extraConfig = "";
       }
-      # TPM is not needed in Nix as plugins are managed declaratively
+      {
+        plugin = cpu;
+      }
+      {
+        plugin = battery;
+      }
     ];
-
-    # Vim style pane selection
-    customPaneNavigationAndResize = true;
   };
-  programs.fzf.tmux.enableShellIntegration = true;
 }
