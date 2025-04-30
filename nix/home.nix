@@ -6,6 +6,7 @@
     ./modules/zsh.nix
     ./modules/tmux.nix
     ./modules/kitty.nix
+    # ./modules/fzf.nix
     # ./modules/sway.nix
     # ./modules/i3.nix
     ./modules/nvim.nix
@@ -24,7 +25,6 @@
     tldr
     zoxide
     ripgrep
-    fzf
     stow
     eza
     dig

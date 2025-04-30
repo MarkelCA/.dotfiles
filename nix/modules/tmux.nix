@@ -1,7 +1,6 @@
 { _, pkgs, ... }:
 
 {
-  programs.fzf.tmux.enableShellIntegration = true;
   programs.tmux = {
     enable = true;
     terminal = "tmux-256color";
@@ -62,6 +61,9 @@
         plugin = sidebar;
       }
       {
+        plugin = tmux-fzf;
+      }
+      {
         plugin = catppuccin;
         extraConfig = ''
           set -g @catppuccin_flavour 'mocha'
@@ -75,7 +77,7 @@
           set -g status-right-length 100
           set -g status-left-length 100
 
-          set -g @catppuccin_status_modules_right "application cpu battery"
+          set -g @catppuccin_status_modules_right "session directory cpu battery date_time"
         '';
       }
     ];
