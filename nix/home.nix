@@ -31,6 +31,7 @@
     bat
     dmenu
     i3status
+    acpi
     nixgl.nixGLIntel # openGL wrapper for nix
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     jetbrains-mono

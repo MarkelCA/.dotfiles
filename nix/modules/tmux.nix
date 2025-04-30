@@ -4,7 +4,7 @@
   programs.fzf.tmux.enableShellIntegration = true;
   programs.tmux = {
     enable = true;
-    terminal = "xterm-256color";
+    terminal = "tmux-256color";
     mouse = true;
     prefix = "C-b";
     baseIndex = 1;
@@ -40,22 +40,14 @@
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+      run-shell ${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/cpu.tmux
+      run-shell ${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/battery.tmux
     '';
 
     plugins = with pkgs.tmuxPlugins; [
       {
         plugin = sensible;
-      }
-      {
-        plugin = catppuccin;
-        extraConfig = ''
-          set -g @catppuccin_flavour 'mocha'
-          set -g @catppuccin_window_default_text "#W"
-          set -g @catppuccin_window_text "#W"
-          set -g @catppuccin_window_current_text "#W"
-
-          set -g @catppuccin_status_modules_right "application session"
-        '';
       }
       {
         plugin = yank;
@@ -65,6 +57,26 @@
       }
       {
         plugin = battery;
+      }
+      {
+        plugin = sidebar;
+      }
+      {
+        plugin = catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_flavour 'mocha'
+          set -g @catppuccin_window_status_style "rounded"
+
+          set -g @catppuccin_window_default_text "#W"
+          set -g @catppuccin_window_text "#W"
+          set -g @catppuccin_window_current_text "#W"
+
+          # Status bar
+          set -g status-right-length 100
+          set -g status-left-length 100
+
+          set -g @catppuccin_status_modules_right "application cpu battery"
+        '';
       }
     ];
   };
