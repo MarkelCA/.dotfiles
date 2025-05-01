@@ -1,4 +1,4 @@
-# nix
+# dotfiles
 My Nix [home-manager](https://github.com/nix-community/home-manager) configurations. 
 
 ## Dependencies
@@ -17,8 +17,8 @@ sudo pacman -S sway
 ```
 </details>
 
-## Configure
+## Usage
 
 ```
-home-manager switch --flake ~/.dotfiles/nix#markel
+home-manager switch --flake ~/dotfiles/nix#markel
 ```
