@@ -24,15 +24,25 @@
         overlays = [ nixGL.overlay ];
       };
     in {
-      homeConfigurations."markel" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { inherit nixGL; };
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+      homeConfigurations = {
+        # Original configuration
+        "markel" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { 
+            inherit nixGL;
+            profileName = "personal";
+          };
+          modules = [ ./home.nix ];
+        };
+        
+        "work" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { 
+            inherit nixGL;
+            profileName = "work";
+          };
+          modules = [ ./home.nix ];
+        };
       };
     };
 }

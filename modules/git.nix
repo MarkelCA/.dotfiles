@@ -1,8 +1,12 @@
+{ profileName, ... }:
+
 {
   programs.git = {
     enable = true;
     userName = "Markel Cuesta";
-    userEmail = "cuestaarribas.markel@proton.me";
+    userEmail = if profileName == "work" 
+                then "markel.cuesta@roadsurfer.com" 
+                else "cuestaarribas.markel@proton.me";
 
     delta = {
       enable = true;
