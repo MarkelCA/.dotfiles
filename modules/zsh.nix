@@ -14,6 +14,24 @@
       bindkey -M emacs '^N' history-substring-search-down
 
       eval "$(zoxide init zsh)"
+
+      project() {
+        local selected_dir
+        selected_dir=$(find ~/projects/ -maxdepth 1 -type d | fzf)
+        if [ -n "$selected_dir" ]; then
+          cd "$selected_dir"
+          # zle reset-prompt
+        builtin zle .reset-prompt
+        fi
+      }
+
+      # Run the "project" function with Ctrl+Space
+      zle -N project
+      bindkey '^f' project
+
+      if [ -f "$HOME/.zsh_secrets" ]; then
+        source "$HOME/.zsh_secrets"
+      fi
     '';
 
     plugins = [
@@ -81,6 +99,14 @@
       e = "eza --icons=always $@";
       et = "eza --tree --icons=always $@";
       m = "make";
+
+      docker-compose = "docker compose";
+      ds = "docker compose";
+      test = "docker compose exec app ./vendor/bin/phpunit";
+      utest =
+        "docker compose exec -e PHPUNIT_DISABLE_DB=1 app ./vendor/bin/phpunit";
+      utestd =
+        "docker compose exec -e XDEBUG_SESSION=1 -e PHPUNIT_DISABLE_DB=1 app php -d xdebug.mode=debug ./vendor/bin/phpunit";
     };
   };
 

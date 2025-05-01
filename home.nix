@@ -6,10 +6,10 @@
     ./modules/zsh.nix
     ./modules/tmux.nix
     ./modules/kitty.nix
-    # ./modules/fzf.nix
+    ./modules/nvim.nix
+    ./modules/fzf.nix
     # ./modules/sway.nix
     # ./modules/i3.nix
-    ./modules/nvim.nix
   ];
   home.username = "markel";
   home.homeDirectory = "/home/markel";

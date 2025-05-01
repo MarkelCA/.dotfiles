@@ -42,6 +42,8 @@
     };
 
     ignores = [
+      ".obsidian"
+      ".phpactor.json"
       "# Node.js"
       "node_modules/"
       "npm-debug.log*"
