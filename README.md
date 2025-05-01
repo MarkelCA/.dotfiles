@@ -1,22 +1,24 @@
-# .dotfiles
-This project setups all my system configurations with a single command. Works by creating symlinks in `~/.config`. 
+# nix
+My Nix [home-manager](https://github.com/nix-community/home-manager) configurations. 
 
 ## Dependencies
-Run the following command to install dependencies (from the project root directory):
+The sway window manager chrashes if installed with Nix. I couldn't fix it because of some limitations with the Nix home-manager that don't exist with NixOS. So for now it has to be installed separately. Instructions:
 
-<details><summary>Arch</summary>
-    
-    sudo pacman -S - < dependencies.txt
-</details>
+<details><summary>Debian Based</summary>
 
-<details><summary>Ubuntu</summary>
-    
-    sudo apt install $(cat dependencies.txt)
-</details>
-
-## Usage
-Use the `dot` script to install, uninstall or reload configurations.
 ```
-$ ./dot
-Usage: ./dot {install|uninstall|reload}
+sudo apt install sway
+```
+</details>
+<details><summary>Arch Based</summary>
+
+```
+sudo pacman -S sway
+```
+</details>
+
+## Configure
+
+```
+home-manager switch --flake ~/.dotfiles/nix#markel
 ```
