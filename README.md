@@ -22,3 +22,8 @@ sudo pacman -S sway
 ```
 home-manager switch --flake ~/dotfiles/nix#markel
 ```
+---
+Took inspiration from:
+- [vimjoyer](https://github.com/vimjoyer)
+- [ornicar](https://github.com/)
+- [Smona](https://github.com/Smona)
