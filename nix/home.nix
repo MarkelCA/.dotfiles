@@ -30,6 +30,7 @@
     eza
     dig
     bat
+    go
     dmenu
     i3status
     acpi
